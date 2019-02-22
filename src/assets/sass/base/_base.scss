@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html,body { //Fix the unknown right space !!!!!!!!important
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+html {
+    font-size: 10px;  // 1rem = 10px
+
+    @include screen('md') {
+        font-size: 9px;     // 1rem = 9px
+    }
+
+    @include screen('xs') {
+        font-size: 8px;     // 1rem = 8px
+    }
+}
+
+body {
+    box-sizing: border-box;
+}

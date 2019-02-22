@@ -1,0 +1,145 @@
+// Box dimensions
+@mixin box($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+// Clearfix
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// CSS Opacity with fallback for IE8+ 
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity = $opacity-ie); //IE8
+}
+
+
+// Positioning
+@mixin position($position, $args) {
+    @each $o in top right bottom left {
+        $i: index($args, $o);
+        @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+            #{$o}: nth($args, $i + 1);
+        }
+    }
+    position: $position;
+}
+  
+  // Positioning helpers
+    @mixin absolute($args: '') {
+        @include position(absolute, $args);
+    }
+    
+    @mixin fixed($args: '') {
+        @include position(fixed, $args);
+    }
+    
+    @mixin relative($args: '') {
+        @include position(relative, $args);
+    }
+
+// Implementing CSS rem units with pixel fallback
+@mixin font-size($size, $base: 16) {
+    font-size: $size; // fallback for old browsers
+    font-size: ($size / $base) * 1rem;
+}
+
+// Media queries
+@mixin screen($size) {
+    @if $size == xl {
+        @media only screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+    @else if $size == lg {
+        @media only screen and (min-width: 992px) and (max-width: 1200px) {
+            @content;
+        }
+    }
+    @else if $size == md {
+        @media only screen and (min-width: 768px) and (max-width: 992px) {
+            @content;
+        }
+    }
+    @else if $size == sm {
+        @media only screen and (min-width: 576px) and (max-width: 768px) {
+            @content;
+        }
+    }
+    @else if $size == xs {
+        @media only screen and (max-width: 576px) {
+            @content;
+        }
+    }
+    @else {
+        @media only screen and #{$size} {
+            @content;
+        }
+    }
+}
+
+// Keyframes
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+  
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+  
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+// Background Gradient
+@mixin gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+    @if $orientation == 'vertical' {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == 'horizontal' {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+// @font-face
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: quote($font-name);
+        src: url($file-name + '.eot');
+        src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+        url($file-name + '.woff') format('woff'),
+        url($file-name + '.ttf')  format('truetype'),
+        url($file-name + '.svg##{$font-name}')  format('svg');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+// Center horizontal
+@mixin center-x {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Center vertical 
+@mixin center-vertically {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% -50%);
+}

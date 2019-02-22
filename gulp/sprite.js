@@ -15,7 +15,7 @@ function spriteCreate () {
     return src(config.src.file.icon)
         .pipe( plumber() )
         .pipe( spriteSvg(config.sprite.config) )
-        .pipe(dest('sprite'));
+        .pipe( dest('sprite') );
 }
 
 let sprite = series(spriteTemplate, spriteCreate);
