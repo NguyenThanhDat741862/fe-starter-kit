@@ -1,5 +1,9 @@
 body {
-
+    font-family: $font-primary;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $font-color-primary;
+    // text-shadow: .04rem .04rem .5rem rgba($color-black, .15);
 }
 
 .heading-primary {
