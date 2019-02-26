@@ -1,0 +1,17 @@
+.section {
+    padding: 12rem 16rem;
+    height: 100%;
+    width: 100%;
+
+    @include screen(lg) {
+        padding: 12rem 10rem;
+    }
+
+    @include screen(md) {
+        padding: 10rem 8rem 7.5rem 8rem;
+    }
+
+    @include screen(xs) {
+        padding: 10rem 6rem 7rem 6rem;
+    }
+}

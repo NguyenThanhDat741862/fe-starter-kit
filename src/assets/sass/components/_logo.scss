@@ -1,0 +1,15 @@
+.logo {
+    @include box(4rem);
+    @include bg-img('../img/logo.png');
+    margin-right: 1rem;
+    display: inline-block;
+
+    @include screen(sm) {
+        @include box(3.5rem);
+        margin-right: .75rem;
+    }
+
+    @include screen(xs) {
+        @include box(3rem);
+    }
+}

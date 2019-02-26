@@ -1,0 +1,43 @@
+.next-btn {
+    @include box(4rem);
+    @include absolute(left 50% bottom 5.5rem);
+    transform: translateX(-50%);
+    border-radius: 100%;
+    background-color: $color-white;
+
+    @include screen(lg) {
+        bottom: 3.5rem;
+    }
+
+    @include screen(md) {
+        @include box(3.5rem);
+    }
+
+    @include screen(xs) {
+        @include box(3rem);
+        bottom: 2rem;
+    }
+
+    &::after {
+        @include box(100%);
+        content: '';
+        background-color: $color-white;
+        display: inline-block;
+        border-radius: 4rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    }
+}

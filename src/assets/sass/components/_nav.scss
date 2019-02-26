@@ -1,0 +1,87 @@
+.nav {
+    @include flex(row);
+    margin-right: 10rem;
+
+    @include screen(lg) {
+        margin-right: 5rem;
+    }
+
+    @include screen(md) {
+        @include flex(column, space-between, center);
+        width: 100%;
+        margin-bottom: 7rem;
+        margin-right: 0;
+    }
+
+    @include screen(sm) {
+        margin-bottom: 5rem;
+    }
+
+    @include screen(xs) {
+        margin-bottom: 3.25rem;
+    }
+
+    @include landscape(md) {
+        margin-bottom: 3rem;
+    }
+
+    @include landscape(sm) {
+        margin-bottom: 2rem;
+    }
+
+    &__item {
+        @include relative;
+        color: $color-white;
+        font-size: inherit;
+        padding: 0 1.75rem 1rem 1.75rem;
+
+        @include screen(md) {
+            padding: 2rem 1.75rem 1rem 1.75rem;
+            font-size: 3rem;
+            &:not(:first-of-type) {
+                margin-top: 1.5rem;
+            }
+        }
+
+        @include screen(sm) {
+            font-size: 3rem;
+            &:not(:first-of-type) {
+                margin-top: 1.2rem;
+            }
+        }
+
+        @include screen(xs) {
+            font-size: 2.25rem;
+        }
+
+        @include landscape(md) {
+            padding: 0 1.75rem 1.2rem 1.75rem;
+            font-size: 1.75rem;         
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            height: 0;
+            width: 0;
+            background-color: $color-white;
+            transition: .15s ease-in-out;
+        }
+
+        &::before {
+            @include absolute(left 0 bottom 0);
+        }
+
+        &::after {
+            @include absolute(right 0 bottom 0);
+        }
+
+        &:hover {
+            &::before,
+            &::after {
+                height: 2px;
+                width: calc(50%);
+            }
+        }
+    }
+}

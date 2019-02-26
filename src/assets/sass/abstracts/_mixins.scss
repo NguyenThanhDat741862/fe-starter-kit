@@ -4,6 +4,41 @@
     height: $height;
 }
 
+// Hidden
+@mixin hidden {
+    @include box(0);
+    opacity: 0;
+    visibility: hidden;
+}
+
+// Display
+@mixin display {
+    opacity: 1;
+    visibility: visible;
+}
+
+// Bg-img
+@mixin bg-img($url, $position: center, $size: cover, $repeat: no-repeat, 
+              $attachment: scroll, $origin: padding-box, $clip: border-box, $color: transparent) {
+    background-image: url($url);
+    background-position: $position;
+    background-size: $size;
+    background-repeat: $repeat;
+    background-attachment: $attachment;
+    background-origin: $origin;
+    background-clip: $clip;
+    background-color: transparent;
+}
+
+// Flex-box
+@mixin flex($direction: row, $content: null , $items: null, $wrap: null) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $content;
+	align-items: $items;
+	flex-wrap: $wrap;
+}
+
 // Clearfix
 @mixin clearfix {
     &:after {
@@ -45,12 +80,6 @@
         @include position(relative, $args);
     }
 
-// Implementing CSS rem units with pixel fallback
-@mixin font-size($size, $base: 16) {
-    font-size: $size; // fallback for old browsers
-    font-size: ($size / $base) * 1rem;
-}
-
 // Media queries
 @mixin screen($size) {
     @if $size == xl {
@@ -59,17 +88,17 @@
         }
     }
     @else if $size == lg {
-        @media only screen and (min-width: 992px) and (max-width: 1200px) {
+        @media only screen /* and (min-width: 992px) */ and (max-width: 1200px) {
             @content;
         }
     }
     @else if $size == md {
-        @media only screen and (min-width: 768px) and (max-width: 992px) {
+        @media only screen /* and (min-width: 768px) */ and (max-width: 992px) {
             @content;
         }
     }
     @else if $size == sm {
-        @media only screen and (min-width: 576px) and (max-width: 768px) {
+        @media only screen /* and (min-width: 576px) */ and (max-width: 768px) {
             @content;
         }
     }
@@ -78,11 +107,50 @@
             @content;
         }
     }
-    @else {
-        @media only screen and #{$size} {
+}
+
+// Portait screen
+@mixin portrait($size) {
+    @if $size == md {
+        @media only screen and (orientation: portrait) and (max-width: 992px) {
             @content;
         }
     }
+    @else if $size == sm {
+        @media only screen and (orientation: portrait) and (max-width: 768px) {
+            @content;
+        }
+    }
+    @else if $size == xs {
+        @media only screen and (orientation: portrait) and (max-width: 576px) {
+            @content;
+        }
+    }
+}
+
+// Landscape
+@mixin landscape($size) {
+    @if $size == md {
+        @media only screen and (orientation: landscape) and (max-width: 992px) {
+            @content;
+        }
+    }
+    @else if $size == sm {
+        @media only screen and (orientation: landscape) and (max-width: 768px) {
+            @content;
+        }
+    }
+    @else if $size == xs {
+        @media only screen and (orientation: landscape) and (max-width: 576px) {
+            @content;
+        }
+    }
+}
+
+// Fix shake element
+@mixin fixShake {
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 // Keyframes
@@ -109,6 +177,9 @@
     } @else if $orientation == 'horizontal' {
         background: -webkit-linear-gradient(left, $start-color, $end-color);
         background: linear-gradient(to right, $start-color, $end-color);
+    } @else if $orientation == 'bottom-right'{
+        background: -webkit-linear-gradient(top left, $start-color, $end-color);
+        background: linear-gradient(to bottom right, $start-color, $end-color);
     } @else {
         background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
         background: radial-gradient(ellipse at center, $start-color, $end-color);
@@ -137,9 +208,8 @@
 }
 
 // Center vertical 
-@mixin center-vertically {
+@mixin center-y {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50% -50%);
+    transform: translateY(-50%);
 }

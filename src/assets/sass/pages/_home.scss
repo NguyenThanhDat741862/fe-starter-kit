@@ -1,3 +1,60 @@
+.header {
+
+}
+
+.banner {
+    @include relative;
+    @include bg-img('../img/banner-bg.png', center, cover);
+    height: 56.25vw;
+    background-color: transparent;
+
+    &__content {
+        @include center-y;
+        width: 27.5%;
+    }
+
+    &__img {
+        @include hidden;
+    }
+
+    @include screen(lg) {
+        &__content {
+            width: 30%;
+        }
+    }
+
+    @include screen(md) {
+        @include bg-img('../img/earth-bg.png', center, cover);
+        @include flex(row, space-between, center);
+        height: auto;
+
+        &__content {
+            @include relative;
+            transform: none;
+            width: 45%;
+            padding-bottom: 5rem;
+        }
+
+        &__img {
+            @include box(50%);
+            @include display;
+        }
+    }
+
+    @include portrait(xs) {
+        @include flex(column, flex-start, center);
+
+        &__content {
+            width: 100%;
+            padding-bottom: 2.5rem;
+        }
+
+        &__img {
+            @include box(70%);
+        }
+    }
+}
+
 .choose-us {
 
 }
@@ -23,5 +80,9 @@
 }
 
 .cta {
+    
+}
+
+.footer {
     
 }

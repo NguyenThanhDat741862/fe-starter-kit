@@ -4,9 +4,10 @@
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+    user-select: none;
 }
 
-html,body { //Fix the unknown right space !!!!!!!!important
+html, body { //Fix the unknown right space !!!!!!!!important
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -14,6 +15,7 @@ html,body { //Fix the unknown right space !!!!!!!!important
 }
 
 html {
+    scroll-behavior: smooth;
     font-size: 10px;  // 1rem = 10px
 
     @include screen('md') {
@@ -27,4 +29,33 @@ html {
 
 body {
     box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+a,
+a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+
+.container {
+    width: 100%;
 }

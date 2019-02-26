@@ -1,0 +1,128 @@
+.topbar {
+    @include flex(row, space-between);
+    @include fixed(left 0 right 0);
+    @include fixShake;
+    z-index: 10;
+    width: 100%;
+    height: auto;
+    padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+
+    &__checkbox {
+        @include absolute(top 1.5rem right 1.5rem);
+        @include hidden;
+        appearance: none;
+        background-color: transparent;
+        outline: none;
+        z-index: 11;
+
+        @include screen(md) {
+            @include box(5rem);
+            @include display;
+        }
+
+        &:checked {
+            & ~ .topbar__nav {
+                right: 0;
+            }
+
+            & ~ .topbar__icon {
+                & > div {
+                    &:first-of-type {
+                        transform: translateY(.3rem) rotate(135deg);
+                    }
+
+                    &:last-of-type {
+                        transform: translateY(0rem) rotate(45deg);
+                    }
+
+                    &:nth-of-type(2) {
+                        @include hidden;
+                    }
+                }
+            }
+        }
+    }
+
+    &__icon {
+        @include absolute(top 0 right 0);
+        @include flex(column, center, center);
+        @include hidden;
+        transition: all .35s ease-in-out;
+        
+        @include screen(md) {
+            @include box(8rem);
+            @include display;
+        }
+
+        & > div {
+            width: 3rem;
+            height: 3px;
+            background-color: $color-white;
+            z-index: 10;
+            transition: all .35s ease-in-out;
+
+            &:first-of-type {
+                transform: translateY(-.5rem);
+            }
+
+            &:last-of-type {
+                transform: translateY(.5rem);
+            }
+        }
+    }
+
+    &__logo {
+        @include flex(row, null, center);
+        @include fixShake;
+        z-index: 12;
+    }
+
+    &__nav {
+        @include flex(row, null, baseline);
+        transition: all .35s ease-in-out;
+
+        @include screen(md) {
+            @include flex(column, center, center);
+            @include fixed(top 0 right -40%);
+            height: 100vh;
+            width: 40%;
+            background-color: $color-primary-dark;
+            z-index: 9;
+        }
+
+        @include screen(sm) {
+            @include fixed(top 0 right -100%);
+            width: 100%;
+        }
+
+        @include landscape(md) {
+            @include fixed(top 0 right -100%);
+            width: 100%;
+        }
+    }
+
+    &__get-started {
+        @include screen(md) {
+            @include flex(row, center, center);
+            width: 100%;
+        }
+
+        @include portrait(md) {
+            margin-top: 5rem;
+        }
+
+        @include portrait(xs) {
+            margin-top: 4rem;
+        }
+    }
+
+    @include screen(lg) {
+        padding: 2.25rem 2.25rem 1.35rem 2.25rem;
+
+    }
+
+    @include landscape(md) {
+        padding: 2rem 2rem 1.35rem 2rem;
+    }
+
+}

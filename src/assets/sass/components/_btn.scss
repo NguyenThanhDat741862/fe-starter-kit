@@ -1,0 +1,93 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        @include relative;
+        padding: 1.35rem 1.25rem;
+        width: 16rem;
+        border-radius: 4rem;
+        background-color: $color-white;
+        color: $color-grey-light;
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 2;
+        transition: all .15s ease-in-out;
+    }
+
+    @include screen(lg) {
+    }
+
+    @include screen(md) {
+        padding: 1.05rem;
+        width: 12rem;
+        font-size: .85rem;
+        letter-spacing: unset;
+    }
+
+    &-group {
+        margin-top: 4rem;
+
+        @include screen(md) {
+            margin-top: 2rem;
+        }
+
+        .btn {
+            margin-right: 1.5rem;
+
+            @include screen(lg) {
+                margin-right: 1rem;
+                margin-bottom: 1.15rem;
+            }
+        }
+    }
+
+    &--small {
+        width: 12.5rem;
+    }
+
+    &::after {
+        content: '';
+        background-color: $color-white;
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 4rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &--transparent {
+        color: $color-white;
+        background-color: transparent;
+        border: .1rem solid $color-white;
+
+        &::after {
+            content: '';
+            background-color: transparent;
+        }
+
+        &:hover {
+            border: .1rem solid $color-primary;
+
+            &::after {
+                background-color: $color-white;
+            }
+        }
+    }
+}
