@@ -4,6 +4,7 @@
     transform: translateX(-50%);
     border-radius: 100%;
     background-color: $color-white;
+    box-shadow: 0 0 1.5rem rgba($color-black, .15);
 
     @include screen(lg) {
         bottom: 3.5rem;
@@ -38,6 +39,18 @@
         &::after {
             transform: scale(1.5);
             opacity: 0;
+        }
+    }
+
+    &--primary {
+        background-color: $color-primary;
+
+        &:hover {
+            background-color: $color-white;
+        }
+
+        &::after {
+            background-color: $color-primary;
         }
     }
 }

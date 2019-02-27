@@ -5,58 +5,112 @@
 .banner {
     @include relative;
     @include bg-img('../img/banner-bg.png', center, cover);
-    height: 56.25vw;
+    height: 58.25vw;
     background-color: transparent;
 
-    &__content {
+    & > .section__content {
         @include center-y;
-        width: 27.5%;
+
+        & > .paragraph {
+            margin-right: 3rem;
+        }
     }
 
-    &__img {
+    & > .section__img {
         @include hidden;
     }
 
-    @include screen(lg) {
-        &__content {
-            width: 30%;
-        }
-    }
-
     @include screen(md) {
-        @include bg-img('../img/earth-bg.png', center, cover);
-        @include flex(row, space-between, center);
         height: auto;
 
-        &__content {
+        & > .section__content {
             @include relative;
-            transform: none;
-            width: 45%;
-            padding-bottom: 5rem;
-        }
+            transform: none;        }
 
-        &__img {
+        & > .section__img {
             @include box(50%);
             @include display;
         }
     }
 
-    @include portrait(xs) {
-        @include flex(column, flex-start, center);
-
-        &__content {
-            width: 100%;
-            padding-bottom: 2.5rem;
-        }
-
-        &__img {
-            @include box(70%);
-        }
+    @include screen(md) {
+        @include bg-img('../img/earth-bg.png', center, cover);
     }
+
 }
 
 .choose-us {
+    @include relative;
+    background-color: $color-white-light;
+    padding-top: 17.5rem;
+    padding-bottom: 22.5rem;
 
+    & > .section__content {
+        width: 35%;
+        z-index: 2;
+        transform: translateX(-5rem);
+    }
+
+    & > .section__img {
+        width: 50%;
+        height: 100%;
+        transform: scale(2) translateX(5rem);
+    }
+
+    @include screen(lg) {
+        padding-top: 9rem;
+        padding-bottom: 11rem;
+    }
+
+    @include screen(md) {
+        padding-top: 7rem;
+        padding-bottom: 8rem;
+
+        & > .section__img {
+            width: 45%;
+        }
+    }
+
+    @include screen(sm) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+        & > .section__content {
+            width: 45%;
+            transform: translateX(0);
+        }
+
+        & > .section__img {
+            width: 40%;
+            transform: scale(2) translateX(3rem) translateY(-1rem);
+        }
+    }
+
+    @include portrait(md) {
+        & > .section__img {
+            transform: scale(2) translateX(4rem) translateY(-1rem);
+        }
+    }
+
+    @include portrait(xs) {
+        padding-bottom: 6.5rem;
+
+        & > .section__content {
+            width: 80%;
+            transform: translateX(-5rem) translateY(2rem);
+        }
+    
+        & > .section__img {
+            width: 80%;
+            height: 100%;
+            transform: scale(1.5) translateX(6.5rem);
+        }
+    }
+
+    @include landscape(xs) {
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+    }
 }
 
 .features {

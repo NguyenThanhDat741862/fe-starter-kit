@@ -1,17 +1,46 @@
 .section {
+    @include flex(row, space-between, center);
     padding: 12rem 16rem;
     height: 100%;
     width: 100%;
 
+    &__content {
+        width: 30%;
+    }
+
+    &__img {
+        @include box(50%);
+        @include display;
+    }
+
     @include screen(lg) {
         padding: 12rem 10rem;
+
+        &__content {
+            width: 30%;
+        }
     }
 
     @include screen(md) {
         padding: 10rem 8rem 7.5rem 8rem;
+
+        &__content {
+            width: 45%;
+            padding-bottom: 5rem;
+        }
     }
 
-    @include screen(xs) {
+    @include portrait(xs) {
+        @include flex(column, flex-start, center);
         padding: 10rem 6rem 7rem 6rem;
+
+        &__content {
+            width: 100%;
+            padding-bottom: 2.5rem;
+        }
+
+        &__img {
+            @include box(70%);
+        }
     }
 }
