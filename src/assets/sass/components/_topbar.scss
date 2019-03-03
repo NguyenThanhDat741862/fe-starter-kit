@@ -1,7 +1,7 @@
 .topbar {
     @include flex(row, space-between);
     @include fixed(left 0 right 0);
-    @include fixShake;
+    @include fix-shake;
     z-index: 10;
     width: 100%;
     height: auto;
@@ -73,7 +73,7 @@
 
     &__logo {
         @include flex(row, null, center);
-        @include fixShake;
+        @include fix-shake;
         z-index: 12;
     }
 

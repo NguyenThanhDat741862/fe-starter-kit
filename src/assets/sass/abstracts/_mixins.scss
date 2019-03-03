@@ -148,7 +148,7 @@
 }
 
 // Fix shake element
-@mixin fixShake {
+@mixin fix-shake {
     backface-visibility: hidden;
     transform: translateZ(0);
 }

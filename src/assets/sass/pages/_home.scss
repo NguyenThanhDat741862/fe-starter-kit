@@ -97,7 +97,7 @@
 
         & > .section__content {
             width: 80%;
-            transform: translateX(-5rem) translateY(2rem);
+            transform: translateX(-4rem) translateY(2rem);
         }
     
         & > .section__img {
@@ -114,7 +114,63 @@
 }
 
 .features {
+    @include relative;
+    @include gradient($color-start, $color-end, bottom-right);
+    padding-top: 8rem;
+    padding-bottom: 40rem;
 
+    @include screen(md) {
+        padding-top: 7rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    @include screen(sm) {
+        padding: 5rem 3rem 30rem 3rem;
+    }
+
+    @include portrait(xs) {
+        padding-top: 4rem;
+        padding-bottom: 23rem;
+    }
+
+    @include landscape(md) {
+        padding-top: 5.5rem;
+        padding-bottom: 33rem;
+    }
+
+    @include landscape(sm) {
+        padding-top: 4rem;
+        padding-bottom: 29rem;
+    }
+
+    & > .section__content {
+        width: 100%;
+    }
+
+    & > .circular {
+        bottom: -8.5rem;
+
+        @include screen(md) {
+            bottom: -7.5rem
+        }
+
+        @include screen(xs) {
+            bottom: -6rem;
+        }
+
+        @include landscape(md) {
+            bottom: -8.5rem;
+        }
+
+        @include landscape(sm) {
+            bottom: -7.5rem;
+        }
+
+        @include landscape(xs) {
+            bottom: -7.3rem;
+        }
+    }
 }
 
 .testimonial {

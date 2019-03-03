@@ -1,0 +1,52 @@
+.slideshow {
+    @include absolute(bottom 0 left 50%);
+    transform: translateX(-50%) translateY(17%);
+    width: 68%;
+    height: 40rem;
+    margin: 2rem auto 0 auto;
+    background-color: $color-white;
+
+    @include screen(lg) {
+        width: 75%;
+    }
+
+    @include screen(md) {
+    }
+    
+    @include screen(sm) {
+        height: 35rem;
+    }
+
+    @include portrait(xs) {
+        width: 90%;
+        height: 26rem;
+    }
+
+    &__item {
+        @include box(100%);
+    }
+
+    &__prev {
+        @include absolute(top 46% left -8rem);
+        
+        @include screen(md) {
+            left: -6rem;
+        }
+
+        @include portrait(xs) {
+            left: -1.5rem;
+        }
+    }
+
+    &__next {
+        @include absolute(top 46% right -8rem);
+
+        @include screen(md) {
+            right: -6rem;
+        }
+
+        @include portrait(xs) {
+            right: -1.5rem;
+        }
+    }
+}

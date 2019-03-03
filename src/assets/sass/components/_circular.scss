@@ -1,4 +1,4 @@
-.next-btn {
+.circular {
     @include box(4rem);
     @include absolute(left 50% bottom 5.5rem);
     transform: translateX(-50%);
@@ -51,6 +51,16 @@
 
         &::after {
             background-color: $color-primary;
+        }
+    }
+
+    &--small {
+        @include relative;
+        @include box(3.2rem);
+        bottom: 0;
+
+        @include screen(xs) {
+            @include box(3rem);
         }
     }
 }
