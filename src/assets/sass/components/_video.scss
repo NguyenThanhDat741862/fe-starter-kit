@@ -1,0 +1,29 @@
+.video {
+    @include relative;
+    @include box(100%);
+    @include bg-img("../img/fake-video.png");
+    display: block;
+    border-radius: 8px;
+
+    &__content {
+
+    }
+
+    &__playpause {
+        @include box(7.5rem);
+        @include absolute(top 50% left 50%);
+        transform: translateX(-50%) translateY(-50%);
+        background-color: $color-primary;
+        border-radius: 100%;
+
+        &::after {
+            @include absolute(top 50% left 50%);
+            @include box(0);
+            content: "";
+            transform: translateX(-40%) translateY(-50%);
+            border-top: .8rem solid transparent;
+            border-bottom: .8rem solid transparent;
+            border-left: 1.25rem solid $color-white;
+        }
+    }
+}

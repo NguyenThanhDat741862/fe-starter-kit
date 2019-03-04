@@ -3,7 +3,6 @@
 }
 
 .banner {
-    @include relative;
     @include bg-img('../img/banner-bg.png', center, cover);
     height: 58.25vw;
     background-color: transparent;
@@ -40,7 +39,6 @@
 }
 
 .choose-us {
-    @include relative;
     background-color: $color-white-light;
     padding-top: 17.5rem;
     padding-bottom: 22.5rem;
@@ -114,10 +112,10 @@
 }
 
 .features {
-    @include relative;
     @include gradient($color-start, $color-end, bottom-right);
     padding-top: 8rem;
     padding-bottom: 40rem;
+    z-index: 2;
 
     @include screen(md) {
         padding-top: 7rem;
@@ -174,11 +172,89 @@
 }
 
 .testimonial {
+    padding: 18rem 15.5vw 15rem 15.5vw;
+    align-items: flex-start;
 
+    & > .section__content {
+        width: 40%;
+        padding-bottom: 9rem;
+    }
+
+    & > .section__img {
+        width: 52%;
+        height: 35rem;
+        align-self: flex-end;
+    }
+
+    @include screen(lg) {
+        @include flex(column);
+        padding-top: 15rem;
+        padding-bottom: 12.5rem;
+
+        & > .section__content {
+            width: 55%;
+            padding-bottom: 4.5rem;
+        }
+
+        & > .section__img {
+            width: 70%;
+        }
+    }
+
+    @include screen(md) {
+        padding: 12rem 12rem 11rem 12rem;
+
+        & > .section__content {
+            width: 65%;
+            padding-bottom: 3.5rem;
+        }
+
+        & > .section__img {
+            width: 80%;
+            height: 30rem;
+        }
+    }
+
+    @include screen(xs) {
+        padding: 10rem 3rem 8rem 3rem;
+        justify-content: center;
+        align-items: center;
+
+        & > .section__content {
+            width: 82.5%;
+            padding-bottom: 3rem;
+        }
+
+        & > .section__img {
+            width: 100%;
+            height: 26.5rem;
+            align-self: unset;
+        }
+    }
+
+    @include landscape(md) {
+        & > .section__img {
+            width: 87.5%;
+            height: 28rem;
+        }
+    }
+
+    @include landscape(xs) {
+        & > .section__content {
+            width: 70%;
+            padding-bottom: 3rem;
+        }
+
+        & > .section__img {
+            width: 85%;
+            height: 30rem;
+            align-self: center;
+        }
+    }
 }
 
 .about {
-
+    @include bg-img("../img/about-bg.png");
 }
 
 .our-team {

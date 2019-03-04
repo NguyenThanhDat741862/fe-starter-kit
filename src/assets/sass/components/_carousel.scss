@@ -1,0 +1,52 @@
+.carousel {
+    margin-top: 4.55rem;
+
+    &__item {
+        width: 100%;
+        height: auto;
+    }
+
+    &__pagination {
+        margin-top: 5.5rem;
+
+        & > span {
+            @include box(5px);
+            display: inline-block;
+            background-color: $font-color-light;
+            border-radius: 100%; 
+
+            &:not(:last-child) {
+                margin-right: 2px;
+            }
+        }
+
+        & > .active {
+            background-color: $color-primary;
+        }
+
+        @include screen(lg) {
+            margin-top: 4.5rem;   
+        }
+
+        @include screen(md) {
+            margin-top: 3.35rem;
+        }
+
+        @include screen(xs) {
+            text-align: center;
+            margin-top: 2.75rem;
+        }
+    }
+
+    @include screen(lg) {
+        margin-top: 3.25rem;
+    }
+
+    @include screen(md) {
+        margin-top: 2.25rem;
+    }
+
+    @include screen(xs) {
+        margin-top: 1.8rem;
+    }
+}

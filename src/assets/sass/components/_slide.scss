@@ -1,6 +1,8 @@
 .slide {
     @include box(100%);
     @include flex(row);
+    border-radius: 6px;
+    overflow: hidden;
 
     &__content {
         width: 65%;

@@ -1,0 +1,84 @@
+.user {
+
+    &__quote {
+        font-family: $font-secondary;
+        font-size: 2rem;
+        font-style: italic;
+        font-weight: 400;
+        color: $color-primary-dark;
+        line-height: 1.4;
+        margin-bottom: 3rem;
+
+        & > .far {
+            color: $font-color-light;
+            display: inline-block;
+            font-size: 2.2rem;
+        }
+
+        & > .fa-angle-double-left {
+            margin-right: 1.5rem;
+
+            @include screen(md) {
+                margin-right: 1.25rem;
+            }
+
+            @include screen(xs) {
+                margin-right: .75rem;
+            }
+        }
+
+        & > .fa-angle-double-right {
+            margin-left: 1.5rem;
+
+            @include screen(md) {
+                margin-left: 1.25rem;
+            }
+
+            @include screen(xs) {
+                margin-left: .75rem;
+            }
+        }
+
+        @include screen(md) {
+            font-size: 1.8rem;
+            margin-bottom: 2.25rem;
+        }
+
+        @include screen(xs) {
+            margin-bottom: 1.75rem;
+        }
+    }
+
+    &__info {
+        @include flex(row, flex-start, center);
+        font-size: 1rem;
+    }
+
+    &__name {
+        display: inline-block;
+        margin-left: 2rem;
+        line-height: 1.5;
+        transform: scaleX(1.1);
+        transform-origin: left;
+
+        @include screen(md) {
+            margin-left: 1.75rem;
+        }
+    }
+
+    &__icon {
+        @include box(4.8rem);
+        @include relative;
+        border-radius: 100%;
+        overflow: hidden;
+        display: inline-block;
+        background-color: $user-color-blue;
+
+        &::after {
+            @include bg-img('../img/user-icon.png', 50% 135%, 80%);
+            @include box(100%);
+            @include absolute(top 0 right 0);
+            content: "";
+        }
+    }
+}

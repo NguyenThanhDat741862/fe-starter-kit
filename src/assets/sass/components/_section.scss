@@ -1,4 +1,5 @@
 .section {
+    @include relative;
     @include flex(row, space-between, center);
     padding: 12rem 18rem;
     height: 100%;
