@@ -23,7 +23,7 @@
     }
 
     @include screen(md) {
-        padding: 10rem 7rem 7.5rem 7rem;
+        padding: 10rem 5rem 7.5rem 5rem;
 
         &__content {
             width: 45%;
@@ -33,7 +33,7 @@
 
     @include portrait(xs) {
         @include flex(column, flex-start, center);
-        padding: 10rem 5rem 7rem 5rem;
+        padding: 10rem 2rem 7rem 2rem;
 
         &__content {
             width: 100%;

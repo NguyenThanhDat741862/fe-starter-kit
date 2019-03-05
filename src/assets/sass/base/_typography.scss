@@ -72,15 +72,6 @@ body {
         }
     }
 
-    &--dark {
-        color: $color-primary-dark;
-
-        .heading-secondary__title::before {
-            content: "";
-            background-color: $color-primary-dark;
-        }
-    }
-
     &--center {
         @include center-x;
         text-align: center;
@@ -100,6 +91,19 @@ body {
         }
     }
 
+    &--dark {
+        color: $color-primary-dark;
+
+        .heading-secondary__title::before {
+            content: "";
+            background-color: $color-primary-dark;
+        }
+
+        .heading-secondary__title::after {
+            content: "";
+            background-color: $color-primary-dark;
+        }
+    }
 }
 
 .heading-tertiary {

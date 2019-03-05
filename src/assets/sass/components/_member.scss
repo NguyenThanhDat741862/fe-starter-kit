@@ -1,0 +1,22 @@
+.member {
+    @include flex(column);
+    width: 24%;
+    height: auto;
+
+    &-wrap {
+        @include flex(row, space-between, flex-start);
+        flex-wrap: wrap;
+        width: 100%;
+        height: auto;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+    }
+
+    &__info {
+        width: 100%;
+        text-align: center;
+    }
+}

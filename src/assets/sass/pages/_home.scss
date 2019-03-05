@@ -20,6 +20,7 @@
     }
 
     @include screen(md) {
+        @include bg-img('../img/earth-bg.png', center, cover);
         height: auto;
 
         & > .section__content {
@@ -32,8 +33,9 @@
         }
     }
 
-    @include screen(md) {
-        @include bg-img('../img/earth-bg.png', center, cover);
+    @include screen(xs) {
+        padding-left: 4rem;
+        padding-right: 4rem;
     }
 
 }
@@ -74,8 +76,12 @@
         padding-bottom: 5rem;
 
         & > .section__content {
-            width: 45%;
+            width: 50%;
             transform: translateX(0);
+
+            & > .heading-secondary {
+                padding-right: 5rem;
+            }
         }
 
         & > .section__img {
@@ -95,7 +101,7 @@
 
         & > .section__content {
             width: 80%;
-            transform: translateX(-4rem) translateY(2rem);
+            transform: translateX(-2rem) translateY(2rem);
         }
     
         & > .section__img {
@@ -202,11 +208,15 @@
     }
 
     @include screen(md) {
-        padding: 12rem 12rem 11rem 12rem;
+        padding: 12rem 8rem 11rem 8rem;
 
         & > .section__content {
             width: 65%;
             padding-bottom: 3.5rem;
+
+            & > .heading-secondary {
+                padding-right: 15rem;
+            }
         }
 
         & > .section__img {
@@ -221,7 +231,7 @@
         align-items: center;
 
         & > .section__content {
-            width: 82.5%;
+            width: 100%;
             padding-bottom: 3rem;
         }
 
@@ -234,14 +244,20 @@
 
     @include landscape(md) {
         & > .section__img {
-            width: 87.5%;
-            height: 28rem;
+            width: 70%;
+            height: 35rem;
+        }
+    }
+
+    @include landscape(sm) {
+        & > .section__img {
+            width: 75%;
+            height: 33.5rem;
         }
     }
 
     @include landscape(xs) {
         & > .section__content {
-            width: 70%;
             padding-bottom: 3rem;
         }
 
@@ -262,7 +278,6 @@
     & > .section__content {
         @include relative;
         margin-left: 10rem;
-        margin-right: 4rem;
 
         & > .circular {
             left: 0;
@@ -310,7 +325,7 @@
 
         & > .section__content {
             margin-right: 0;
-            margin-left: 3.75rem;
+            margin-left: 2rem;
         }
 
         & > .section__img {
@@ -350,7 +365,11 @@
 }
 
 .our-team {
+    background-color: $color-white;
 
+    & > .section__content {
+        width: 100%;
+    }
 }
 
 .blog {
