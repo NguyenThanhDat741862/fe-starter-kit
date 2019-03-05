@@ -254,7 +254,99 @@
 }
 
 .about {
-    @include bg-img("../img/about-bg.png");
+    @include bg-img("../img/about-bg.png", right);
+    @include flex(row, flex-start);
+    padding-left: 0;
+    padding-bottom: 10rem;
+
+    & > .section__content {
+        @include relative;
+        margin-left: 10rem;
+        margin-right: 4rem;
+
+        & > .circular {
+            left: 0;
+            bottom: -13rem;
+            transform: none;
+        }
+    }
+
+    & > .section__img {
+        @include box(60%);
+    }
+
+    @include screen(lg) {
+        padding-top: 7.5rem;
+
+        & > .section__content {
+            margin-left: 8rem;
+
+            & > .circular {
+                bottom: -11rem;
+            }
+        }
+    }
+
+    @include screen(md) {
+        padding-top: 7rem;
+        padding-bottom: 6rem;
+
+        & > .section__content {
+            margin-left: 5rem;
+            margin-right: 2.2rem;
+
+            & > .circular {
+                bottom: -3rem;
+            }
+        }
+
+        & > .section__img {
+            @include box(70%);
+        }
+    }
+
+    @include screen(sm) {
+        padding-top: 5.5rem;
+
+        & > .section__content {
+            margin-right: 0;
+            margin-left: 3.75rem;
+        }
+
+        & > .section__img {
+            margin-bottom: 1.75rem;
+        }
+    }
+
+    @include screen(xs) {
+        @include flex(column);
+        background-position-x: 96%;
+        padding: 4.5rem 0 5rem 0;
+
+        & > .section__content {
+            position: static;
+            width: 90%;
+            padding-right: 9rem;
+
+            & > .circular {
+                bottom: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        & > .section__img {
+            @include box(100%);
+            padding-right: 1.25rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    @include landscape(xs) {
+        & > .section__img {
+            padding-right: 10rem;            
+        }
+    }
 }
 
 .our-team {
