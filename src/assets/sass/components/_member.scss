@@ -2,12 +2,45 @@
     @include flex(column);
     width: 24%;
     height: auto;
+    margin-bottom: 4.75rem;
 
     &-wrap {
         @include flex(row, space-between, flex-start);
         flex-wrap: wrap;
         width: 100%;
         height: auto;
+        margin-top: 6rem;
+
+        @include screen(md) {
+            display: block;
+            white-space: nowrap; // overflow-x in div element !!!!!!!important
+            overflow-x: scroll;
+            margin-top: 3.75rem;
+
+            &::-webkit-scrollbar {
+                background-color: rgba($color-white, .5);
+                height: 5px;
+                border-radius: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 6px rgba($color-black, .15);                
+                border-radius: 5px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $color-primary-dark;
+                border-radius: 5px;
+            }
+
+            &::-webkit-scrollbar-corner {
+                @include box(0);
+            }
+        }
+
+        @include screen(sm) {
+            margin-top: 3rem;
+        }
     }
 
     &__img {
@@ -17,6 +50,51 @@
 
     &__info {
         width: 100%;
+        font-size: 1.35rem;
         text-align: center;
+        line-height: 1.9;
+        margin-top: 2rem;
+
+        @include screen(lg) {
+            font-size: 1.3rem;
+        }
+    }
+
+    @include screen(lg) {
+        margin-bottom: 4rem;
+    }
+
+    @include screen(md) {
+        display: inline-block;
+        margin-bottom: 2rem;    
+        width: 32%;
+
+        &:not(:last-child) {
+            margin-right: 1%;
+        }
+    }
+
+    @include screen(sm) {
+        width: 48%;
+
+        &:not(:last-child) {
+            margin-right: 2%;
+        }
+    }
+
+    @include screen(xs) {
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-right: .5rem;
+        }
+    }
+
+    @include landscape(xs) {
+        width: 48%;
+
+        &:not(:last-child) {
+            margin-right: 2%;
+        }
     }
 }

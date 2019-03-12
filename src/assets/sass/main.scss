@@ -9,6 +9,16 @@
 @import "base/typography";
 @import "base/util";
 
+@import "vendor/fontawesome/fontawesome.scss";
+@import "vendor/fontawesome/fa-solid.scss";
+@import "vendor/fontawesome/fa-regular.scss";
+@import "vendor/fontawesome/fa-light.scss";
+@import "vendor/fontawesome/fa-brands.scss";
+
+@import "vendor/owlcarousel/owl.carousel.scss";
+@import "vendor/owlcarousel/owl.theme.default.scss";
+@import "vendor/owlcarousel/owl.theme.green.scss";
+
 // @import "components/icon";
 @import "components/logo";
 @import "components/topbar";
@@ -18,20 +28,16 @@
 @import "components/circular";
 @import "components/feature";
 @import "components/img";
+@import "components/icon";
 @import "components/slideshow";
 @import "components/slide";
 @import "components/carousel";
 @import "components/user";
 @import "components/video";
 @import "components/member";
+@import "components/post";
 
 @import "layout/header";
 @import "layout/footer";
-
-@import "vendor/fontawesome/fontawesome.scss";
-@import "vendor/fontawesome/fa-solid.scss";
-@import "vendor/fontawesome/fa-regular.scss";
-@import "vendor/fontawesome/fa-light.scss";
-@import "vendor/fontawesome/fa-brands.scss";
 
 @import "pages/home";

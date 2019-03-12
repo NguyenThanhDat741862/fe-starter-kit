@@ -1,0 +1,28 @@
+.icon {
+    @include box(100%);
+    @include relative;
+    border-radius: 100%;
+    overflow: hidden;
+    display: inline-block;
+    background-color: $user-color-blue;
+
+    &::after {
+        @include bg-img('../img/user-icon.png', 50% 135%, 80%);
+        @include box(100%);
+        @include absolute(top 0 right 0);
+        content: "";
+    }
+
+    &--square {
+        border-radius: 3px;
+    }
+
+    &--comment {
+        border-radius: 0;
+        background-color: transparent;
+
+        &::after {
+            @include bg-img('../img/comment-icon.png', 50% 50%, 90%);
+        }
+    }
+}

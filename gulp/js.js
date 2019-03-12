@@ -9,8 +9,8 @@ const config = require('../gulp.config');
 function js () {
     return src(config.src.file.js)
         .pipe( plumber() )
-        .pipe( order(config.js.order) )
-        .pipe( linter(config.js.eslint) )
+        .pipe( order(config.js.order) , { base: './' })
+        // .pipe( linter(config.js.eslint) )
         .pipe( linter.format() )
         .pipe( concat('bundle.js') )
         .pipe( dest(config.tmp.folder.js) );

@@ -366,18 +366,139 @@
 
 .our-team {
     background-color: $color-white;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
 
     & > .section__content {
         width: 100%;
     }
+
+    & > .circular {
+        bottom: 0;
+        transform: translateX(-50%) translateY(50%);
+        z-index: 1;
+    }
+
+    @include screen(md) {
+        padding-bottom: 7rem;
+
+        & > .section__content {
+            padding-bottom: 0;
+        }
+    }
+
+    @include screen(sm) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    @include portrait(xs) {
+        padding-top: 4rem;
+    }
+
+    @include landscape(md) {
+        padding-top: 5.5rem;
+    }
+
+    @include landscape(sm) {
+        padding-top: 4rem;
+    }
 }
 
 .blog {
+    background-color: $color-greyblue;
+    border-top: 1px solid $border-color;
+
+    & > .section__content {
+        @include relative;
+        width: 100%;
+
+        & > .btn-group {
+            @include absolute(top 0 right 0);
+            margin: 0;
+        }
+
+        & > .heading-secondary,
+        & > .paragraph {
+            width: 40%;
+        }
+
+        & > .carousel {
+            width: max-content;
+            margin-left: -18rem;
+            
+            & > .carousel__content {
+                @include flex(row);
+
+            }
+        }
+    }
+
 
 }
 
 .cta {
+    @include bg-img('../img/earth-bg.png', center, cover);
+    @include flex(column);
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
     
+    & > .section__content {
+        @include flex(column, flex-start, center);
+        width: 100%;
+        margin-bottom: 9rem;
+
+        & > .btn-group {
+            margin-top: 0;
+        }
+    }
+
+    & > .section__img {
+        width: 100%;
+        padding-left: 17.5%;
+    }
+
+    @include screen(lg) {
+        padding-top: 7rem;
+    }
+
+    @include screen(md) {
+
+        & > .section__content {
+            padding-bottom: 0;
+            margin-bottom: 5rem;
+        }
+    }
+
+    @include screen(sm) {
+        padding-top: 6rem;
+        
+        & > .section__content {
+            margin-bottom: 5rem;
+        }
+    }
+
+    @include portrait(xs) {
+        padding-top: 4rem;
+
+        & > .section__content {
+            margin-bottom: 4rem;
+
+            & > .heading-secondary {
+                padding-left: 7rem;
+                padding-right: 7rem;
+            }
+        }
+    }
+
+    @include landscape(md) {
+        padding-top: 5.5rem;
+    }
+
+    @include landscape(sm) {
+        padding-top: 4rem;
+    }
 }
 
 .footer {

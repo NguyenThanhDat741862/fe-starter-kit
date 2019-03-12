@@ -1,0 +1,85 @@
+.post {
+    @include flex(row);
+    width: 40rem;
+    height: auto;
+    border-radius: 5px;
+    overflow: hidden;
+    
+    &:not(:last-child) {
+        margin-right: 2rem;
+    }
+
+    &__content {
+        @include relative;
+        @include box(100%);
+        padding: 3.25rem 2.5rem;
+        background-color: $color-white;
+        transition: all .25s ease-in-out;
+    }
+
+    &__img {
+        background-color: red;
+        width: 0;
+        transition: all .25s ease-in-out;
+
+        & > .img {
+            object-fit: cover;
+        }
+    }
+
+    &__title {
+        @include relative;
+        @include flex(column);
+        padding-bottom: 2.05rem;
+
+        &::after {
+            @include absolute(left 0 bottom 0);
+            content: "";
+            width: 7rem;
+            height: 1px;
+            background-color: $color-primary;
+        }
+    }
+
+    &__paragraph {
+        font-size: 1.35rem;
+        line-height: 1.7;
+        height: 7rem;
+        overflow: hidden;
+        white-space: normal;
+        color: inherit;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    &__comment {
+        @include flex(row, flex-start, center);
+        font-size: 1.05rem;
+
+        & > .icon {
+            @include box(1.4rem);
+            display: inline-block;
+            margin-right: 1rem;
+        }
+    }
+
+    &__icon {
+        @include absolute(bottom 3.25rem right 2.5rem);
+        @include box(2.35rem);
+        
+        & > .icon {
+            display: inline-block;
+        }
+    }
+
+    &:hover {
+
+        & > .post__content {
+            width: 70%;
+        }
+
+        & > .post__img {
+            width: 30%;
+        }
+    }
+}

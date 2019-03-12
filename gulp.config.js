@@ -17,9 +17,11 @@ const config = {
         },
 
         order: [
-            'src/assets/js/vendor/*.js', 
-            'src/assets/js/*.js', 
-            'src/assets/js/main.js']
+            'vendor/jquery.min.js',
+            'vendor/**/*.js', 
+            '*.js', 
+            'main.js'
+        ]
     },
 
     sprite: {
