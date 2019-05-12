@@ -10,8 +10,8 @@ function js_dist (done) {
     pump([
         src(config.tmp.file.js),
         plumber(),
-        uglify(),
         rename('bundle.min.js'),
+        uglify(),
         dest(config.dist.folder.js)
     ], done);
 }

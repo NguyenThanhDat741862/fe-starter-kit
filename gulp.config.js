@@ -2,26 +2,6 @@ const config = {
 
     port: 3000,
 
-    js: {
-        eslint: {
-            parserOptions: {
-                "ecmaVersion": 6,
-                "sourceType": "module",
-                "ecmaFeatures": {
-                    "jsx": false
-                }
-            },
-            rules: {
-                "semi": "error"
-            }
-        },
-
-        order: [
-            'src/assets/js/vendor/*.js', 
-            'src/assets/js/*.js', 
-            'src/assets/js/main.js']
-    },
-
     sprite: {
         config: {
             mode: {
@@ -92,7 +72,7 @@ const config = {
     },
 
     htmlmin: {
-        collapseWhitespace: true
+        
     },
 
     dir: {
